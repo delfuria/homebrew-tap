@@ -1,6 +1,6 @@
 cask "battery-toolkit-next" do
-  version "2.0.1"
-  sha256 "9b5cf4511e63ce8ca104aac338abcf6f073bf9cc37e96a32337edeca89eefb4e"
+  version "2.0.2"
+  sha256 "47e004c0af774c6dc3c3f60f7051994466ea8c239483a726e70581092432e649"
 
   url "https://github.com/delfuria/Battery-Toolkit-Next/releases/download/v#{version}/Battery-Toolkit-Next-#{version}.zip"
   name "Battery Toolkit Next"
