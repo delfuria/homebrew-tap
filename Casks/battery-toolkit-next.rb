@@ -1,6 +1,6 @@
 cask "battery-toolkit-next" do
-  version "2.0.2"
-  sha256 "47e004c0af774c6dc3c3f60f7051994466ea8c239483a726e70581092432e649"
+  version "2.0.3"
+  sha256 "6c59cea0c3714a987b32b8e788d5e7a3edb8c068b4148cf25bfdb22cb712620b"
 
   url "https://github.com/delfuria/Battery-Toolkit-Next/releases/download/v#{version}/Battery-Toolkit-Next-#{version}.zip"
   name "Battery Toolkit Next"
@@ -18,11 +18,6 @@ cask "battery-toolkit-next" do
   app "Battery Toolkit Next.app"
 
   uninstall_preflight_steps do
-    # Stopping the daemon must not leave the firmware charge limit installed.
-    run "/usr/bin/defaults",
-        args:         ["write", "com.delfuria.batterytoolkitd", "KeepLimitOnShutdown", "-bool", "false"],
-        sudo:         true,
-        must_succeed: false
     run "/usr/bin/security",
         args:         ["authorizationdb", "remove", "com.delfuria.batterytoolkitd.manage"],
         sudo:         true,
@@ -46,8 +41,5 @@ cask "battery-toolkit-next" do
     Do not run Battery Toolkit Next together with the original Battery Toolkit:
     both control the same charging hardware. Uninstall it first, e.g.:
       brew uninstall --cask battery-toolkit
-
-    Upgrading or uninstalling turns off "Keep charge limit while shut down".
-    Turn it on again in Settings after an upgrade if you use it.
   EOS
 end
